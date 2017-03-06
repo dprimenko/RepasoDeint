@@ -1,0 +1,37 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="es.dpinfo.repasodeint">
+
+    <application
+        android:name=".ShopApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <provider
+            android:authorities="es.dpinfo.repasodeint"
+            android:name=".provider.ShopProvider" />
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".receiver.WarningReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.amador.fridge.WARNING" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".services.ExpiryService"
+            android:exported="false"></service>
+    </application>
+
+</manifest>
